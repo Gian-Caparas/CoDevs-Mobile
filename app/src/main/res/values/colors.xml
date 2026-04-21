@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="sage_primary">#98A869</color>
+    <color name="sage_button">#7B8A50</color>
+    <color name="sage_light">#B0BC8C</color>
+    <color name="sage_dark">#3F462A</color>
+    <color name="white">#FFFFFF</color>
 </resources>
