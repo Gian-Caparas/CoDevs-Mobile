@@ -101,7 +101,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
                 <View android:layout_width="0dp" android:layout_height="1.5dp" android:layout_weight="1" android:background="#3F462A" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="Or" android:textColor="#3F462A" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="Or" android:textColor="#3F462A" android:textSize="16sp"/>
                 <View android:layout_width="0dp" android:layout_height="1.5dp" android:layout_weight="1" android:background="#3F462A" />
             </LinearLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
                 android:text="Google"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:textColor="#000000"
                 app:cornerRadius="20dp"
@@ -129,7 +129,7 @@
                 android:layout_height="55dp"
                 android:layout_marginTop="10dp"
                 android:text="Facebook"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:textColor="#000000"
                 app:cornerRadius="20dp"
@@ -146,7 +146,7 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="Already have an account? Sign in"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textColor="#3F462A" />
 
         </LinearLayout>
