@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#3F462A"
     android:fillViewport="true"
-    tools:context=".SignIn">
+    tools:context=".SignUp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,10 +33,10 @@
                 android:id="@+id/tvWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Welcome Back!"
+                android:layout_marginTop="16dp"
+                android:text="Ready to Serve!"
                 android:textColor="#B0BC8C"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -47,15 +47,26 @@
             android:background="@drawable/bg_login_card"
             android:orientation="vertical"
             android:paddingHorizontal="32dp"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp">
+            android:paddingTop="32dp"
+            android:paddingBottom="40dp">
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/outline_field_bg"
+                android:hint="Enter your username"
+                android:paddingStart="20dp"
+                android:textColorHint="#3F462A" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/outline_field_bg"
                 android:hint="Enter your email"
+                android:inputType="textEmailAddress"
                 android:paddingStart="20dp"
                 android:textColorHint="#3F462A" />
 
@@ -70,54 +81,28 @@
                 android:paddingStart="20dp"
                 android:textColorHint="#3F462A" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <CheckBox
-                    android:id="@+id/cbRemember"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#3F462A"
-                    android:text="Remember"
-                    android:textColor="#3F462A"
-                    android:textSize="16sp"/>
-
-                <TextView
-                    android:id="@+id/tvForgot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Forgot Password?"
-                    android:textColor="#3F462A"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-            </RelativeLayout>
-
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="#7B8A50"
-                android:text="Login"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:text="Sign up"
                 android:textAllCaps="false"
                 android:textColor="#3F462A"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:cornerRadius="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="horizontal">
-                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="#3F462A" />
+                <View android:layout_width="0dp" android:layout_height="1.5dp" android:layout_weight="1" android:background="#3F462A" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingHorizontal="10dp" android:text="Or" android:textColor="#3F462A" />
-                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="#3F462A" />
+                <View android:layout_width="0dp" android:layout_height="1.5dp" android:layout_weight="1" android:background="#3F462A" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -125,7 +110,7 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="16dp"
                 android:text="Google"
                 android:textSize="14sp"
                 android:textAllCaps="false"
@@ -135,7 +120,7 @@
                 app:iconGravity="textStart"
                 app:iconPadding="12dp"
                 app:iconTint="@null"
-                app:strokeColor="#3F462A" />
+                app:strokeColor="#3F462A"  />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFacebook"
@@ -155,12 +140,12 @@
                 app:strokeColor="#3F462A" />
 
             <TextView
-                android:id="@+id/tvSignUpLink"
+                android:id="@+id/tvSignInLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="Don’t have an account? Sign up"
+                android:text="Already have an account? Sign in"
                 android:textSize="14sp"
                 android:textColor="#3F462A" />
 
