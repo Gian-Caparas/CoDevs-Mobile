@@ -94,7 +94,8 @@
         android:orientation="horizontal"
         android:paddingBottom="10dp"
         android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <ImageButton
             android:id="@+id/btnMenu"
