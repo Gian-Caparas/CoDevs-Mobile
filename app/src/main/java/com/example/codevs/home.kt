@@ -1,20 +1,26 @@
 package com.example.codevs
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // 1. Find the profile image view by its ID
+        val profileImage = findViewById<ImageView>(R.id.profileImage)
+
+        // 2. Set a click listener to trigger the navigation
+// Inside home.kt
+        profileImage.setOnClickListener {
+            // Make sure it says Profile::class.java here!
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
         }
     }
 }

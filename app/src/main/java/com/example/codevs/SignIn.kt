@@ -9,6 +9,7 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,13 @@ class SignIn : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
 
         setupSignUpLink()
+        val signInButton = findViewById<Button>(R.id.btnLogin)
+
+        signInButton.setOnClickListener {
+            val intent = Intent(this, home::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupSignUpLink() {
