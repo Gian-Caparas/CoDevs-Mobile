@@ -55,15 +55,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/navBarFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stickyTopBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="110dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="250dp"
@@ -98,17 +97,26 @@
                 app:layout_constraintStart_toStartOf="@+id/tvWelcome"
                 app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_marginTop="80dp" android:background="#D0E3C2"
+                app:layout_constraintTop_toTopOf="@+id/lightGreenBox"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lightGreenBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/main_content_bg"
-                android:paddingHorizontal="24dp"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvName">
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="120dp">
 
                 <!-- Top Banner -->
                 <androidx.cardview.widget.CardView
@@ -261,6 +269,114 @@
                         android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#7B8D6D"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardAircondition" />
+
+                <TextView
+                    android:id="@+id/ServicesHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2"
+                    android:text="tech solutions for"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:textColor="#3F462A"/>
+                <TextView
+                    android:id="@+id/ServicesHeader2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ServicesHeader"
+                    android:text="your need"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:textColor="#3F462A"/>
+
+                <TextView
+                    android:id="@+id/ServiceContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintWidth_percent="0.4"
+                    app:layout_constraintTop_toBottomOf="@id/ServicesHeader2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"
+                    android:justificationMode="inter_word"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/serviceImage"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="0dp"
+                    app:layout_constraintStart_toEndOf="@id/ServiceContent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ServicesHeader">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@color/design_default_color_background" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/contactButton"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/sage_dark"
+                    android:textColor="@color/sage_light"
+                    android:textStyle="bold"
+                    app:cardElevation="24dp"
+                    android:textAllCaps="false"
+                    android:text="contact us now!"
+                    app:cornerRadius="20dp" app:layout_constraintTop_toBottomOf="@id/serviceImage"
+                    app:layout_constraintBottom_toTopOf="@id/serviceImage2"
+                    app:layout_constraintStart_toStartOf="@id/serviceImage"
+                    app:layout_constraintEnd_toEndOf="@id/serviceImage"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/serviceImage2"
+                    android:layout_width="0dp"
+                    android:layout_height="92dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ServiceContent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@color/design_default_color_background" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#7B8D6D"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/serviceImage2" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -272,7 +388,6 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout="@layout/fragment_nav_bar" />
 
