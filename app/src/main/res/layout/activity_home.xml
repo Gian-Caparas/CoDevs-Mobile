@@ -55,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navBarFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stickyTopBar">
@@ -266,55 +266,14 @@
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Navigation Bar -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="@drawable/bg_nav_bar"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:weightSum="4"
+    <fragment
+        android:id="@+id/navBarFragment"
+        android:name="com.example.codevs.NavBarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnMenu"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_weight="0.5"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
-            android:src="@drawable/menu" />
-
-        <ImageButton
-            android:id="@+id/btnHome"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_weight="0.5"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
-            android:src="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/btnShop"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_weight="0.5"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
-            android:src="@drawable/shop" />
-
-        <ImageButton
-            android:id="@+id/btnEmail"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_weight="0.5"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
-            android:src="@drawable/email" />
-
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_nav_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
