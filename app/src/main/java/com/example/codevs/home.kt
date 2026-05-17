@@ -3,6 +3,7 @@ package com.example.codevs
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,21 +14,28 @@ class home : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
 
-        // 1. Find the profile image view by its ID
+        // Profile image → Profile screen
         val profileImage = findViewById<ImageView>(R.id.profileImage)
-
-        // 2. Set a click listener to trigger the navigation
-// Inside home.kt
         profileImage.setOnClickListener {
-            // Make sure it says Profile::class.java here!
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Profile::class.java))
         }
 
+        // Search bar click → Search screen
+        val searchEditText = findViewById<EditText>(R.id.searchEditText)
+        searchEditText.setOnClickListener {
+            startActivity(Intent(this, Search::class.java))
+        }
+        // Also trigger on focus (user taps into the field)
+        searchEditText.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                startActivity(Intent(this, Search::class.java))
+            }
+        }
+
+        // Contact button → Contact screen
         val contactBtn = findViewById<Button>(R.id.contactButton)
         contactBtn.setOnClickListener {
-            val intent = Intent(this, Contact::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Contact::class.java))
         }
     }
 }

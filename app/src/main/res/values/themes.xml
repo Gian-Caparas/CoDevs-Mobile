@@ -11,4 +11,13 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
+    </style>
+
+    <style name="AppBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/main_content_bg</item>
+        <!-- main_content_bg already has rounded top corners in your project -->
+    </style>
+
 </resources>
