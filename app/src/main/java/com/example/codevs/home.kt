@@ -2,6 +2,7 @@ package com.example.codevs
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,12 @@ class home : AppCompatActivity() {
         profileImage.setOnClickListener {
             // Make sure it says Profile::class.java here!
             val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+        }
+
+        val contactBtn = findViewById<Button>(R.id.contactButton)
+        contactBtn.setOnClickListener {
+            val intent = Intent(this, Contact::class.java)
             startActivity(intent)
         }
     }

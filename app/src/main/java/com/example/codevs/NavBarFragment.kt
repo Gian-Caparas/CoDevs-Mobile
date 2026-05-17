@@ -46,8 +46,8 @@ class NavBarFragment : Fragment() {
 
         btnEmail.setOnClickListener {
             // Navigate to Email/Messages screen (create this activity when needed)
-            // val intent = Intent(requireActivity(), Email::class.java)
-            // requireActivity().startActivity(intent)
+            val intent = Intent(requireActivity(), Contact::class.java)
+            requireActivity().startActivity(intent)
         }
     }
 }
