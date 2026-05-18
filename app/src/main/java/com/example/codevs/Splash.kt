@@ -2,6 +2,7 @@ package com.example.codevs // Ensure this matches your actual project package
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.example.codevs.R
@@ -10,7 +11,7 @@ class Splash : AppCompatActivity() { // Changed class name to match your Manifes
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
+        enableEdgeToEdge()
         val motionLayout = findViewById<MotionLayout>(R.id.main_layout)
 
         motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {

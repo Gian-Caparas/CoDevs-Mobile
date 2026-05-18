@@ -1,6 +1,5 @@
 package com.example.codevs
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,8 +7,6 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -43,12 +40,6 @@ class Contact : AppCompatActivity() {
         etOtherService = findViewById(R.id.etOtherService)
         serviceDropdown = findViewById(R.id.serviceDropdown)
         otherServiceLayout = findViewById(R.id.otherServiceLayout)
-
-        // 2. Navigation: The Back Button
-        val btnBack = findViewById<ImageButton>(R.id.btnBack)
-        btnBack.setOnClickListener {
-            finish() // This safely closes the activity and returns to the previous screen
-        }
 
         // 3. Setup the Dropdown Options
         val services = arrayOf("Software Development", "Hardware repairs", "UI/UX", "Report an Issue", "OTHER")
@@ -87,14 +78,6 @@ class Contact : AppCompatActivity() {
                     finish() // Returns user to previous screen after success
                 }
                 .show()
-        }
-
-        val profileImage = findViewById<ImageView>(R.id.profileImage)
-
-        profileImage.setOnClickListener {
-            // Make sure it says Profile::class.java here!
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
         }
     }
 

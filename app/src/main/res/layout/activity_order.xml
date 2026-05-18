@@ -9,438 +9,291 @@
     android:background="#4A5D3F"
     tools:context=".Order">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/stickyTopBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#4A5D3F"
-        android:paddingBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/searchEditText"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/search_bg"
-            android:hint="Search"
-            android:paddingHorizontal="24dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#99FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
-            app:layout_constraintEnd_toStartOf="@+id/profileImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/profileImage" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profileImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="32dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/profile_placeholder"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/CircleImageView"
-            app:strokeColor="#C5D8B6"
-            app:strokeWidth="1dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/navBarFragmentOrder"
+        android:paddingTop="120dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stickyTopBar">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvShopHeader"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#4A5D3F"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="24dp">
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Shop"
+                android:textColor="#C5D8B6"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Shop"
-                    android:textColor="#C5D8B6"
-                    android:textSize="42sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="see our products and\nservices below!"
-                    android:textColor="#A8C090"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvShopSub"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="see our products and\nservices below!"
+                android:textColor="#C5D8B6"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvShopHeader"
+                app:layout_constraintTop_toBottomOf="@+id/tvShopHeader" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="80dp"
                 android:background="#D0E3C2"
-                android:orientation="vertical"
-                android:paddingHorizontal="16dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lightGreenBox" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="products"
-                    android:textColor="#3A4E2A"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:alpha="0.35"
+                android:scaleType="fitEnd"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardProduct1"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lightGreenBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/main_content_bg"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShopSub">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#FFFFFF">
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Products"
+                        android:textColor="#3A4E2A"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Air Conditioners"
+                        android:textColor="#3A4E2A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="12dp"
-                        android:gravity="center_vertical">
-
-                        <ImageView
-                            android:id="@+id/imgProduct1"
-                            android:layout_width="90dp"
-                            android:layout_height="80dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_launcher_background" />
-
+                        android:scrollbars="none"
+                        android:layout_marginBottom="20dp">
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:id="@+id/containerAircons"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:paddingStart="12dp">
+                            android:orientation="horizontal"
+                            android:paddingBottom="4dp" />
+                    </HorizontalScrollView>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Smart TVs"
+                        android:textColor="#3A4E2A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="20dp">
+                        <LinearLayout
+                            android:id="@+id/containerTVs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="4dp" />
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refrigerators"
+                        android:textColor="#3A4E2A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="20dp">
+                        <LinearLayout
+                            android:id="@+id/containerFridges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="4dp" />
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rice Cookers"
+                        android:textColor="#3A4E2A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="28dp">
+                        <LinearLayout
+                            android:id="@+id/containerRiceCookers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="4dp" />
+                    </HorizontalScrollView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#7B8D6D"
+                        android:layout_marginBottom="24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Services"
+                        android:textColor="#3A4E2A"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="tech solutions for your needs."
+                        android:textColor="#5A6E4A"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="16dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="#FFFFFF">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="16dp"
+                            android:gravity="center_vertical">
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="Brand: Panasonic"
-                                android:textColor="#333333"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Model: CW-U921JH"
-                                android:textColor="#555555"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Price: ₱ 29,500"
-                                android:textColor="#333333"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ratings: ★★★★★"
-                                android:textColor="#F5A623"
-                                android:textSize="12sp" />
-
-                            <Button
-                                android:id="@+id/btnOrderProduct1"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="We offer:"
+                                    android:textColor="#333333"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="6dp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="• Repairs\n• Software development\n• UI/UX Design"
+                                    android:textColor="#555555"
+                                    android:textSize="14sp"
+                                    android:layout_marginBottom="16dp"
+                                    android:lineSpacingExtra="4dp"/>
+                                <Button
+                                    android:id="@+id/btnContactUs"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    android:backgroundTint="#4A5D3F"
+                                    android:text="contact us now"
+                                    android:textAllCaps="false"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp"
+                                    app:cornerRadius="20dp" />
+                            </LinearLayout>
+                            <ImageView
                                 android:layout_width="100dp"
-                                android:layout_height="36dp"
-                                android:layout_marginTop="8dp"
-                                android:backgroundTint="#4A5D3F"
-                                android:text="order"
-                                android:textAllCaps="false"
-                                android:textColor="#FFFFFF"
-                                android:textSize="13sp"
-                                app:cornerRadius="20dp" />
-
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_launcher_background"
+                                android:layout_marginStart="12dp" />
                         </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardProduct2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#FFFFFF">
-
-                    <LinearLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="12dp"
-                        android:gravity="center_vertical">
-
+                        android:layout_height="120dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp">
                         <ImageView
-                            android:id="@+id/imgProduct2"
-                            android:layout_width="90dp"
-                            android:layout_height="80dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_launcher_background" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:paddingStart="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Brand: Carrier"
-                                android:textColor="#333333"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Model: FP-53CKV030308"
-                                android:textColor="#555555"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Price: ₱ 39,500"
-                                android:textColor="#333333"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ratings: ★★★★★"
-                                android:textColor="#F5A623"
-                                android:textSize="12sp" />
-
-                            <Button
-                                android:id="@+id/btnOrderProduct2"
-                                android:layout_width="100dp"
-                                android:layout_height="36dp"
-                                android:layout_marginTop="8dp"
-                                android:backgroundTint="#4A5D3F"
-                                android:text="order"
-                                android:textAllCaps="false"
-                                android:textColor="#FFFFFF"
-                                android:textSize="13sp"
-                                app:cornerRadius="20dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardProduct3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#FFFFFF">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="12dp"
-                        android:gravity="center_vertical">
-
-                        <ImageView
-                            android:id="@+id/imgProduct3"
-                            android:layout_width="90dp"
-                            android:layout_height="80dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_launcher_background" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:paddingStart="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Brand: Hitachi"
-                                android:textColor="#333333"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Model: RAS-08HT"
-                                android:textColor="#555555"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Price: ₱ 40,500"
-                                android:textColor="#333333"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ratings: ★★★★"
-                                android:textColor="#F5A623"
-                                android:textSize="12sp" />
-
-                            <Button
-                                android:id="@+id/btnOrderProduct3"
-                                android:layout_width="100dp"
-                                android:layout_height="36dp"
-                                android:layout_marginTop="8dp"
-                                android:backgroundTint="#4A5D3F"
-                                android:text="order"
-                                android:textAllCaps="false"
-                                android:textColor="#FFFFFF"
-                                android:textSize="13sp"
-                                app:cornerRadius="20dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#7B8D6D"
-                    android:layout_marginBottom="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Services"
-                    android:textColor="#3A4E2A"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="tech solutions for your needs."
-                    android:textColor="#5A6E4A"
-                    android:textSize="13sp"
-                    android:layout_marginBottom="12dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    app:cardBackgroundColor="#FFFFFF">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="We offer:"
-                                android:textColor="#333333"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:layout_marginBottom="6dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="• Repairs\n• Software development\n• UI/UX Design"
-                                android:textColor="#555555"
-                                android:textSize="13sp"
-                                android:layout_marginBottom="12dp" />
-
-                            <Button
-                                android:id="@+id/btnContactUs"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:backgroundTint="#4A5D3F"
-                                android:text="contact us now"
-                                android:textAllCaps="false"
-                                android:textColor="#FFFFFF"
-                                android:textSize="12sp"
-                                app:cornerRadius="20dp" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/ic_launcher_background"
-                            android:layout_marginStart="12dp" />
+                            android:src="@drawable/ic_launcher_background" />
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher_background" />
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-        </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/topBarFragment"
+        android:name="com.example.codevs.TopBarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_top_bar" />
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navBarFragmentOrder"
         android:name="com.example.codevs.NavBarFragment"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:layout="@layout/fragment_nav_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

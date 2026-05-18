@@ -40,8 +40,8 @@ class NavBarFragment : Fragment() {
 
         btnShop.setOnClickListener {
             // Navigate to Shop screen (create this activity when needed)
-            // val intent = Intent(requireActivity(), Shop::class.java)
-            // requireActivity().startActivity(intent)
+            val intent = Intent(requireActivity(), Order::class.java)
+            requireActivity().startActivity(intent)
         }
 
         btnEmail.setOnClickListener {

@@ -3,6 +3,5 @@
     <solid android:color="#A9C298" /> <!-- Light Sage Green -->
     <!-- Round only the top corners -->
     <corners
-        android:topLeftRadius="40dp"
-        android:topRightRadius="40dp" />
+        android:radius="40dp" />
 </shape>

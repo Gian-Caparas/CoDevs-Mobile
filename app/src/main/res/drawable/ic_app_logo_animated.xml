@@ -4,7 +4,6 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="@color/sage_light"
         android:src="@drawable/logo"/>
 
 </vector>
