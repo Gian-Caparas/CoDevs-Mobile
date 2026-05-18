@@ -1,11 +1,14 @@
 package com.example.codevs
 
+import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class Order : AppCompatActivity() {
 
@@ -35,17 +38,14 @@ class Order : AppCompatActivity() {
 
         // ── Contact Us button ──
         findViewById<Button>(R.id.btnContactUs).setOnClickListener {
-            val intent = android.content.Intent(this, Contact::class.java)
+            val intent = Intent(this, Contact::class.java)
             startActivity(intent)
         }
     }
 
-    /**
-     * Shows a BottomSheetDialog that matches the "Modal - Order" mockup.
-     * Quantity can be incremented / decremented and total updates live.
-     */
     private fun showOrderModal(productName: String, unitPrice: Int) {
-        val dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+        // CHANGED: Instantiated a standard dialog instance instead of a BottomSheet
+        val dialog = Dialog(this)
         val view = layoutInflater.inflate(R.layout.dialog_order_modal, null)
         dialog.setContentView(view)
 
@@ -86,13 +86,26 @@ class Order : AppCompatActivity() {
 
         // Confirm
         btnConfirm.setOnClickListener {
-            // TODO: send order to backend / cart
-            android.widget.Toast.makeText(
+            Toast.makeText(
                 this,
                 "Order confirmed! Qty: $quantity × ${formatPrice(unitPrice)}",
-                android.widget.Toast.LENGTH_SHORT
+                Toast.LENGTH_SHORT
             ).show()
             dialog.dismiss()
+        }
+
+        // ── DIALOG WINDOW CUSTOM OVERLAYS FIX ──
+        dialog.window?.apply {
+            // 1. Clears out the default white box background so xml corners render rounded
+            setBackgroundDrawableResource(android.R.color.transparent)
+
+            // 2. Adjusts modal viewport dimensions so it handles all device sizes beautifully
+            val width = (resources.displayMetrics.widthPixels * 0.85).toInt() // Takes up exactly 85% width
+            setLayout(width, WindowManager.LayoutParams.WRAP_CONTENT)
+
+            // 3. Optional visual fidelity - guarantees background dimming effect stays active
+            addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            setDimAmount(0.5f) // Adjust overlay darkness percent here (0.0f to 1.0f)
         }
 
         dialog.show()

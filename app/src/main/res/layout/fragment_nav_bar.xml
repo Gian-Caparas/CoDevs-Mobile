@@ -18,7 +18,8 @@
         android:layout_weight="0.5"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
-        android:src="@drawable/menu" />
+        android:src="@drawable/menu"
+        android:contentDescription="Menu Button" />
 
     <ImageButton
         android:id="@+id/btnHome"
@@ -27,7 +28,8 @@
         android:layout_weight="0.5"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
-        android:src="@drawable/home" />
+        android:src="@drawable/home"
+        android:contentDescription="Home Button" />
 
     <ImageButton
         android:id="@+id/btnShop"
@@ -36,7 +38,8 @@
         android:layout_weight="0.5"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
-        android:src="@drawable/shop" />
+        android:src="@drawable/shop"
+        android:contentDescription="Shop Button" />
 
     <ImageButton
         android:id="@+id/btnEmail"
@@ -45,6 +48,7 @@
         android:layout_weight="0.5"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
-        android:src="@drawable/email" />
+        android:src="@drawable/email"
+        android:contentDescription="Contact Button" />
 
 </LinearLayout>

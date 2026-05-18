@@ -9,58 +9,40 @@
     android:background="#D0E3C2"
     tools:context=".Search">
 
-    <!-- ── TOP BAR ── -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topBar"
+        android:id="@+id/stickyTopBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#4A5D3F"
-        android:paddingTop="36dp"
         android:paddingBottom="16dp"
-        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Search EditText -->
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/search_bg"
             android:hint="Search"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="24dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#99FFFFFF"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileImageSearch"
+            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+            app:layout_constraintEnd_toStartOf="@+id/profileImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/profileImage" />
 
-        <!-- Search Icon inside bar (decorative) -->
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@android:drawable/ic_menu_search"
-            android:alpha="0.7"
-            app:layout_constraintBottom_toBottomOf="@+id/searchEditText"
-            app:layout_constraintEnd_toStartOf="@+id/profileImageSearch"
-            app:layout_constraintTop_toTopOf="@+id/searchEditText"
-            android:layout_marginEnd="72dp"
-            tools:ignore="VectorDrawableCompat" />
-
-        <!-- Profile Image -->
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profileImageSearch"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
+            android:id="@+id/profileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="32dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_placeholder"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/CircleImageView"
@@ -69,7 +51,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ── SCROLLABLE CONTENT ── -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -77,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@+id/navBarFragmentSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar">
+        app:layout_constraintTop_toBottomOf="@+id/stickyTopBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,7 +66,6 @@
             android:orientation="vertical"
             android:paddingBottom="16dp">
 
-            <!-- ── RECENT SEARCHES ── -->
             <LinearLayout
                 android:id="@+id/recentSearchSection"
                 android:layout_width="match_parent"
@@ -104,63 +84,67 @@
                     android:textSize="13sp"
                     android:layout_marginBottom="10dp" />
 
-                <LinearLayout
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="start">
+                    android:scrollbars="none">
 
-                    <TextView
-                        android:id="@+id/chipAircon"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/chip_bg"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:text="Split-type Aircon"
-                        android:textColor="#4A5D3F"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        android:orientation="horizontal"
+                        android:gravity="start">
 
-                    <TextView
-                        android:id="@+id/chipSmartTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/chip_bg"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:text="Smart TV"
-                        android:textColor="#4A5D3F"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        <TextView
+                            android:id="@+id/chipAircon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chip_bg"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="6dp"
+                            android:text="Split-type Aircon"
+                            android:textColor="#4A5D3F"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
 
-                    <TextView
-                        android:id="@+id/chipRef"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/chip_bg"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:text="Refrigerator"
-                        android:textColor="#4A5D3F"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        <TextView
+                            android:id="@+id/chipSmartTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chip_bg"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="6dp"
+                            android:text="Smart TV"
+                            android:textColor="#4A5D3F"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
 
-                    <TextView
-                        android:id="@+id/chipRiceCooker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/chip_bg"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="6dp"
-                        android:text="Rice Cooker"
-                        android:textColor="#4A5D3F"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/chipRef"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chip_bg"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="6dp"
+                            android:text="Refrigerator"
+                            android:textColor="#4A5D3F"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/chipRiceCooker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chip_bg"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="6dp"
+                            android:text="Rice Cooker"
+                            android:textColor="#4A5D3F"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
             </LinearLayout>
 
-            <!-- ── SEARCH SUGGESTIONS HEADER ── -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,7 +155,6 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp" />
 
-            <!-- ── SUGGESTION GRID (2x2) ── -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,7 +163,6 @@
                 android:paddingHorizontal="12dp"
                 android:useDefaultMargins="true">
 
-                <!-- Card 1: Panasonic Aircon -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardPanasonic"
                     android:layout_width="0dp"
@@ -226,7 +208,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Card 2: Hisense Smart TV -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardHisense"
                     android:layout_width="0dp"
@@ -272,7 +253,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Card 3: TCL Washing Machine -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardTcl"
                     android:layout_width="0dp"
@@ -318,7 +298,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Card 4: Condura Refrigerator -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardCondura"
                     android:layout_width="0dp"
@@ -369,7 +348,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ── BOTTOM NAV BAR ── -->
     <fragment
         android:id="@+id/navBarFragmentSearch"
         android:name="com.example.codevs.NavBarFragment"

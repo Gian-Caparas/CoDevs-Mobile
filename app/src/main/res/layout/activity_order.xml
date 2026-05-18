@@ -9,43 +9,40 @@
     android:background="#4A5D3F"
     tools:context=".Order">
 
-    <!-- ── TOP BAR ── -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topBarOrder"
+        android:id="@+id/stickyTopBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#4A5D3F"
-        android:paddingTop="36dp"
         android:paddingBottom="16dp"
-        android:paddingHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/searchEditTextOrder"
+            android:id="@+id/searchEditText"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/search_bg"
             android:hint="Search"
-            android:inputType="text"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="24dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#99FFFFFF"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileImageOrder"
+            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+            app:layout_constraintEnd_toStartOf="@+id/profileImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/profileImage" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profileImageOrder"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="10dp"
+            android:id="@+id/profileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="32dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_placeholder"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/CircleImageView"
@@ -54,7 +51,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ── SCROLLABLE CONTENT ── -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -62,14 +58,13 @@
         app:layout_constraintBottom_toTopOf="@+id/navBarFragmentOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBarOrder">
+        app:layout_constraintTop_toBottomOf="@+id/stickyTopBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- ── HERO SECTION (dark green) ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +90,6 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- ── LIGHT GREEN CONTENT AREA ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,7 +99,6 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp">
 
-                <!-- PRODUCTS Header -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,7 +108,6 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="12dp" />
 
-                <!-- ── PRODUCT CARD 1: Panasonic ── -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardProduct1"
                     android:layout_width="match_parent"
@@ -191,7 +183,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- ── PRODUCT CARD 2: Carrier ── -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardProduct2"
                     android:layout_width="match_parent"
@@ -267,7 +258,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- ── PRODUCT CARD 3: Hitachi ── -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardProduct3"
                     android:layout_width="match_parent"
@@ -343,14 +333,12 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- ── SERVICES DIVIDER ── -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#7B8D6D"
                     android:layout_marginBottom="16dp" />
 
-                <!-- SERVICES Header -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -367,7 +355,6 @@
                     android:textSize="13sp"
                     android:layout_marginBottom="12dp" />
 
-                <!-- Services Card -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -428,7 +415,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Services wide image -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
@@ -448,7 +434,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ── BOTTOM NAV BAR ── -->
     <fragment
         android:id="@+id/navBarFragmentOrder"
         android:name="com.example.codevs.NavBarFragment"
